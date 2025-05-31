@@ -66,15 +66,6 @@ Esto ejecutará el flujo de Prefect, que realizará las siguientes operaciones:
 2.  **Transformación:** Procesará los datos extraídos (actualmente, esta etapa no realiza transformaciones complejas).
 3.  **Carga:** Guardará las ofertas de trabajo en la tabla `jobs` de tu base de datos `basedescrapping`.
 
-## Monitoreo con Prefect UI
-
-Para monitorear tus flujos de Prefect, puedes iniciar la interfaz de usuario de Prefect:
-
-```bash
-prefect ui
-```
-
-Luego, abre tu navegador y ve a `http://localhost:4200` (o el puerto que indique la consola). Podrás ver el estado de tus ejecuciones de flujo, registros y más.
 
 ## Estructura del Proyecto
 
