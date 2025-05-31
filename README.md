@@ -23,8 +23,8 @@ Asegúrate de tener instalado Python 3.x y pip.
 2.  **Crear un entorno virtual (recomendado):**
     ```bash
     python -m venv venv
-    source venv/bin/activate  # En Linux/macOS
-    venv\Scripts\activate     # En Windows
+    source venv/bin/activate 
+    venv\Scripts\activate     
     ```
 
 3.  **Instalar dependencias:**
