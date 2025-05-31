@@ -2,7 +2,9 @@ import requests
 from bs4 import BeautifulSoup
 import time
 import random
+from prefect import task
 
+@task
 def extract_jobs():
     url = "https://www.linkedin.com/jobs/search/?keywords=python"
     headers = {"User-Agent": "Mozilla/5.0"}

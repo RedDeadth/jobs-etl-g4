@@ -1,3 +1,6 @@
+from prefect import task
+
+@task
 def transform_jobs(extracted_jobs):
     transformed_jobs = []
     for job in extracted_jobs:

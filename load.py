@@ -1,4 +1,5 @@
 import mysql.connector
+from prefect import task
 
 DB_CONFIG = {
     'host': 'localhost',
@@ -7,6 +8,7 @@ DB_CONFIG = {
     'database': 'basedescrapping'
 }
 
+@task
 def create_table():
     try:
         mydb = mysql.connector.connect(**DB_CONFIG)
@@ -28,6 +30,7 @@ def create_table():
             mycursor.close()
             mydb.close()
 
+@task
 def insert_job(job):
     try:
         mydb = mysql.connector.connect(**DB_CONFIG)
@@ -48,10 +51,11 @@ def insert_job(job):
             mycursor.close()
             mydb.close()
 
+@task
 def load_jobs(transformed_jobs):
-    create_table()
+    create_table.run() # Llamar a la tarea create_table
     for job in transformed_jobs:
-        insert_job(job)
+        insert_job.run(job) # Llamar a la tarea insert_job
     print(f"Se guardaron {len(transformed_jobs)} ofertas en la base de datos.")
 
 if __name__ == "__main__":
